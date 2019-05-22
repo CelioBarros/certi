@@ -2,9 +2,10 @@
 
 I develop this app with python using Flask framework.
 
-### install python 3.7
-### install pip3
-### install Flask
+### To execute this app need
+- install python 3.7
+- install pip3
+- install Flask
 
 #### To run execute
 ```
