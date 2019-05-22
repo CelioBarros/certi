@@ -7,7 +7,12 @@ I develop this app with python using Flask framework.
 - install pip3
 - install Flask
 
-#### To run execute
+#### To run app
 ```
 python3 app/router.py
+```
+
+#### To run tests
+```
+python3 tests/function_test.py
 ```
