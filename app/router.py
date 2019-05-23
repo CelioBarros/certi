@@ -1,5 +1,4 @@
-from flask import Flask
-from flask import jsonify
+from flask import Flask, jsonify
 from auxiliar_function import number_to_word
 
 app = Flask(__name__)
@@ -13,4 +12,4 @@ def hello(number):
     return 'bad request!', 400
 
 if __name__ == '__main__':
-	app.run(port=3000, use_reloader=True)
+	app.run(port=3000, use_reloader=True, debug=True, host='0.0.0.0')
