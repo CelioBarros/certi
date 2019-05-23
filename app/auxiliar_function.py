@@ -41,4 +41,9 @@ translate_dict = {
 }
 
 def number_to_word(number):
-  return translate_dict[number]
+  result = ''
+  if (number < 0):
+    result += 'menos '
+    number *= -1
+  result += translate_dict[number]
+  return result
