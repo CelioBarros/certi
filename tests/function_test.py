@@ -47,6 +47,10 @@ class TestNumberToWordMethod(unittest.TestCase):
 
     def test_O(self):
         self.assertEqual(auxiliar_function.number_to_word(0), 'zero')
+        
+    def test_composed_value(self):
+        self.assertEqual(auxiliar_function.composed_value(23), 'vinte e três')
+        self.assertEqual(auxiliar_function.composed_value(95), 'noventa e cinco')
 
 if __name__ == '__main__':
     unittest.main()
