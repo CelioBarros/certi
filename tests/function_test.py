@@ -16,6 +16,7 @@ class TestNumberToWordMethod(unittest.TestCase):
     def test_hundred_positive(self):
         self.assertEqual(auxiliar_function.number_to_word(100), 'cem')
         self.assertEqual(auxiliar_function.number_to_word(110), 'cento e dez')
+        self.assertEqual(auxiliar_function.number_to_word(126), 'cento e vinte e seis')
         self.assertEqual(auxiliar_function.number_to_word(999), 'novecentos e noventa e nove')
 
     def test_thousand_positive(self):
@@ -41,7 +42,7 @@ class TestNumberToWordMethod(unittest.TestCase):
     def test_thousand_negative(self):
         self.assertEqual(auxiliar_function.number_to_word(-1000), 'menos mil')
         self.assertEqual(auxiliar_function.number_to_word(-7007), 'menos sete mil e sete')
-        self.assertEqual(auxiliar_function.number_to_word(-54056), 'menos cinco e quatro mil e cinquenta e seis')
+        self.assertEqual(auxiliar_function.number_to_word(-54056), 'menos cinquenta e quatro mil e cinquenta e seis')
         self.assertEqual(auxiliar_function.number_to_word(-99999), 'menos noventa e nove mil e novecentos e noventa e nove')
 
     def test_O(self):
