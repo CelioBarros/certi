@@ -1,5 +1,5 @@
-translate_dict = {
-  0: "zero",
+translate_dict_simple_positive = {
+  0: "",
   1: "um",
   2: "dois",
   3: "três",
@@ -18,32 +18,71 @@ translate_dict = {
   16: "dezeseis",
   17: "dezesete",
   18: "dezoito",
-  19: "dezenove",
-  20: "vinte",
-  30: "trinta",
-  40: "quarenta",
-  50: "cinquenta",
-  60: "sessenta",
-  70: "setenta",
-  80: "oitenta",
-  90: "noventa",
-  100: "cem",
-  "cento": "cento",
-  200: "duzentos",
-  300: "trezentos",
-  400: "quatrocentos",
-  500: "quinhentos",
-  600: "seiscentos",
-  700: "setecentos",
-  800: "oitocentos",
-  900: "novecentos",
-  1000: "mil"
+  19: "dezenove"
+}
+translate_dict_composed_positive = {
+  0: "",
+  1: "",
+  2: "vinte",
+  3: "trinta",
+  4: "quarenta",
+  5: "cinquenta",
+  6: "sessenta",
+  7: "setenta",
+  8: "oitenta",
+  9: "noventa",
+}
+translate_dict_hundred_positive = {
+  1: "cento",
+  2: "duzentos",
+  3: "trezentos",
+  4: "quatrocentos",
+  5: "quinhentos",
+  6: "seiscentos",
+  7: "setecentos",
+  8: "oitocentos",
+  9: "novecentos",
 }
 
 def number_to_word(number):
   result = ''
+  if(number == 0):
+    return 'zero'
   if (number < 0):
     result += 'menos '
     number *= -1
-  result += translate_dict[number]
+
+  thousand = int(number/1000)
+  if (thousand > 0):
+    if (thousand > 1):
+      result += composed_value(thousand) + ' '
+    result += 'mil'
+  
+  number -= (thousand*1000)
+  hundred = int(number/100)
+  if (hundred >= 1 and thousand > 0):
+    result += ' e '
+  if (number == 100):
+    result += 'cem'
+    return result
+
+  if (hundred >= 1):
+    result += translate_dict_hundred_positive[hundred]
+  number -= (hundred*100)
+  
+  if ((hundred >= 1 or thousand > 0) and number > 0):
+    result += ' e '
+  result += composed_value(number)
+  return result
+
+def composed_value(number):
+  result = ''
+  single = int(number % 10)
+  composed = int(((number % 100) - single) / 10)
+  if (composed <= 1):
+    result += translate_dict_simple_positive[int(number % 100)]
+  else:
+    result += translate_dict_composed_positive[composed] 
+    if (single > 0):
+      result += ' e ' + translate_dict_simple_positive[single]
   return result
