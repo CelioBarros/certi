@@ -1,6 +1,6 @@
 # certi
 
-I develop this app with python using Flask framework.
+I develop this app using python3 with Flask framework.
 
 ## Run without Docker
 ### To execute this app need
