@@ -14,9 +14,9 @@ translate_dict_simple_positive = {
   12: "doze",
   13: "treze",
   14: "catorze",
-  15: "quize",
-  16: "dezeseis",
-  17: "dezesete",
+  15: "quinze",
+  16: "dezesseis",
+  17: "dezessete",
   18: "dezoito",
   19: "dezenove"
 }
