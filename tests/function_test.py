@@ -1,0 +1,57 @@
+import unittest
+import sys
+sys.path.insert(0,'app')
+sys.path.insert(0,'../app')
+import auxiliar_function
+
+class TestNumberToWordMethod(unittest.TestCase):
+
+    def test_simple_positive(self):
+        self.assertEqual(auxiliar_function.number_to_word(1), 'um')
+        self.assertEqual(auxiliar_function.number_to_word(11), 'onze')
+
+    def test_composed_positive(self):
+        self.assertEqual(auxiliar_function.number_to_word(23), 'vinte e três')
+        self.assertEqual(auxiliar_function.number_to_word(95), 'noventa e cinco')
+
+    def test_hundred_positive(self):
+        self.assertEqual(auxiliar_function.number_to_word(100), 'cem')
+        self.assertEqual(auxiliar_function.number_to_word(110), 'cento e dez')
+        self.assertEqual(auxiliar_function.number_to_word(126), 'cento e vinte e seis')
+        self.assertEqual(auxiliar_function.number_to_word(999), 'novecentos e noventa e nove')
+
+    def test_thousand_positive(self):
+        self.assertEqual(auxiliar_function.number_to_word(1000), 'mil')
+        self.assertEqual(auxiliar_function.number_to_word(1110), 'mil e cento e dez')
+        self.assertEqual(auxiliar_function.number_to_word(3112), 'três mil e cento e doze')
+        self.assertEqual(auxiliar_function.number_to_word(99999), 'noventa e nove mil e novecentos e noventa e nove')
+
+    def test_simple_negative(self):
+        self.assertEqual(auxiliar_function.number_to_word(-1), 'menos um')
+        self.assertEqual(auxiliar_function.number_to_word(-8), 'menos oito')
+
+    def test_composed_negative(self):
+        self.assertEqual(auxiliar_function.number_to_word(-87), 'menos oitenta e sete')
+        self.assertEqual(auxiliar_function.number_to_word(-94), 'menos noventa e quatro')
+
+    def test_hundred_negative(self):
+        self.assertEqual(auxiliar_function.number_to_word(-100), 'menos cem')
+        self.assertEqual(auxiliar_function.number_to_word(-200), 'menos duzentos')
+        self.assertEqual(auxiliar_function.number_to_word(-378), 'menos trezentos e setenta e oito')
+        self.assertEqual(auxiliar_function.number_to_word(-930), 'menos novecentos e trinta')
+
+    def test_thousand_negative(self):
+        self.assertEqual(auxiliar_function.number_to_word(-1000), 'menos mil')
+        self.assertEqual(auxiliar_function.number_to_word(-7007), 'menos sete mil e sete')
+        self.assertEqual(auxiliar_function.number_to_word(-54056), 'menos cinquenta e quatro mil e cinquenta e seis')
+        self.assertEqual(auxiliar_function.number_to_word(-99999), 'menos noventa e nove mil e novecentos e noventa e nove')
+
+    def test_O(self):
+        self.assertEqual(auxiliar_function.number_to_word(0), 'zero')
+        
+    def test_composed_value(self):
+        self.assertEqual(auxiliar_function.composed_value(23), 'vinte e três')
+        self.assertEqual(auxiliar_function.composed_value(95), 'noventa e cinco')
+
+if __name__ == '__main__':
+    unittest.main()
