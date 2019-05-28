@@ -1,6 +1,7 @@
 import unittest
 import sys
 sys.path.insert(0,'app')
+sys.path.insert(0,'../app')
 import auxiliar_function
 
 class TestNumberToWordMethod(unittest.TestCase):
